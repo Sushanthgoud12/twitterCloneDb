@@ -51,7 +51,7 @@ app.post("/register",async(request,response) =>{
 app.post("/login/",async (request,response) => {
     const {username,password}=request.body;
     const dbUser= await db.get(
-        `select * from username where username="${username}";`
+        `select * from user where username="${username}";`
     );
     if (db.username!==undefined){
         const {isPasswordMatch}=await bcrypt.compare(password,dbUser.password)
